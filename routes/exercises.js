@@ -1,35 +1,38 @@
 const express = require('express');
 const router = express.Router();
 const auth = require('../middleware/auth');
-const { check, validationResult } = require('express-validator/check');
+const { check, validationResult } = require('express-validator');
 
+const Exercise = require('../models/Exercise');
 const Workout = require('../models/Workout');
-
-// @route   GET  api/workouts
-// @desc    Get all of user's workouts
+// @route   GET  api/workouts/:workoutId/exercises
+// @desc    Get all of workout's exercises
 // @access  Private
-router.get('/', auth, async (req, res) => {
+router.get('/:workoutId/exercises', auth, async (req, res) => {
   try {
-    const workouts = await Workout.find({ user: req.user.id }).sort({
+    const exercises = await Exercise.find({
+      workout: req.params.workoutId,
+    }).sort({
       date: -1,
     });
-    res.json(workouts);
+    res.json(exercises);
   } catch (error) {
     console.log(error.message);
     res.status(500).send('Server Error');
   }
 });
 
-// @route   POST  api/workouts
-// @desc    Add workout
+// @route   POST  api/workouts/:workoutId/exercises
+// @desc    Add exercise to workout
 // @access  Private
 router.post(
-  '/',
+  '/:workoutId/exercises',
   [
     auth,
     [
       check('name', 'Name is required').not().isEmpty(),
-      check('type', 'Workout type is required').not().isEmpty(),
+      check('reps', 'Number of reps is required').not().isEmpty(),
+      check('sets', 'Number of sets is required').not().isEmpty(),
     ],
   ],
   async (req, res) => {
@@ -37,17 +40,27 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const { name, type } = req.body;
+    const { name, reps, sets, description } = req.body;
+    let workout = await Workout.findById(req.params.workoutId);
+    if (!workout) return res.status(404).json({ msg: 'Workout not found' });
+
+    if (workout.user.toString() !== req.user.id) {
+      return res
+        .status(401)
+        .json({ msg: 'Not authorized to edit this workout' });
+    }
 
     try {
-      const newWorkout = new Workout({
+      const newExercise = new Exercise({
         name,
-        type,
+        reps,
+        sets,
+        description,
+        workout,
         user: req.user.id,
       });
-
-      const workout = await newWorkout.save();
-      res.json(workout);
+      const exercise = await newExercise.save();
+      res.json(exercise);
     } catch (error) {
       console.error(error.message);
       res.status(500).send('server error');
@@ -55,6 +68,7 @@ router.post(
   }
 );
 
+// TODO ADD PUT/DELETE for EXERCISES
 // @route   PUT  api/workouts/:id
 // @desc    Update workout
 // @access  Private
