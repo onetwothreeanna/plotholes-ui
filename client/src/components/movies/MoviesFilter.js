@@ -28,7 +28,7 @@ const MovieFilter = () => {
         ref={text}
         disabled={loading}
         type='text'
-        placeholder='Filter movies by Title'
+        placeholder='Search for movies by Title'
       />
       <input
         type='submit'
