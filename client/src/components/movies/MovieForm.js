@@ -54,6 +54,7 @@ const MovieForm = () => {
       });
     } else {
       updateMovie(movie);
+      clearCurrent();
     }
   };
 

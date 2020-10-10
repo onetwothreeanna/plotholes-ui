@@ -15,7 +15,7 @@ Navbar.propTypes = {
 };
 
 Navbar.defaultProps = {
-  title: 'Bucket Flicks',
+  title: 'Plots Hole',
 };
 
 export default Navbar;
