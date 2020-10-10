@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import MovieContext from '../../context/movie/movieContext';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 
 const MovieItem = ({ movie }) => {
   const movieContext = useContext(MovieContext);
@@ -27,10 +29,10 @@ const MovieItem = ({ movie }) => {
           className='btn btn-dark btn-sm'
           onClick={() => setCurrent(movie)}
         >
-          Edit
+          <EditIcon />
         </button>
         <button className='btn btn-danger btn-sm' onClick={onDelete}>
-          Delete
+          <DeleteIcon />
         </button>
       </p>
     </div>

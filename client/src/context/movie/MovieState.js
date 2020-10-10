@@ -66,7 +66,7 @@ const MovieState = (props) => {
   //Delete Movie
   const deleteMovie = async (id) => {
     try {
-      const res = await axios.delete(`/api/workouts/${id}`);
+      const res = await axios.delete(`/movies/${id}`);
       dispatch({
         type: DELETE_MOVIE,
         payload: id,
@@ -89,7 +89,7 @@ const MovieState = (props) => {
 
     try {
       const res = await axios.put(
-        `/api/workouts/${movie.id}`,
+        `/movies/${movie.id}`,
         movie,
         config
       );
@@ -137,6 +137,7 @@ const MovieState = (props) => {
         current: state.current,
         filtered: state.filtered,
         error: state.error,
+        loading: state.loading,
         filterMovies,
         clearFilter,
         setCurrent,

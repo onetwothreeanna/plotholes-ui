@@ -64,7 +64,7 @@ export default (state, action) => {
         ...state,
         filtered: state.movies.filter((movie) => {
           const regex = new RegExp(`${action.payload}`, 'gi');
-          return movie.title.match(regex) || movie.type.match(regex);
+          return movie.Title.match(regex);
         }),
       };
     case CLEAR_FILTER:

@@ -68,9 +68,10 @@ const MovieForm = () => {
       </h2>
       <input
         type='text'
-        placeholder='Title'
+        placeholder='Title*'
         name='Title'
         value={Title}
+        required
         onChange={onChange}
       />
       <input
@@ -108,10 +109,11 @@ const MovieForm = () => {
         value={OriginEthnicity}
         onChange={onChange}
       />
-      <input
+      <textarea
         type='text'
-        placeholder='Plot'
+        placeholder='Plot*'
         name='Plot'
+        required
         value={Plot}
         onChange={onChange}
       />

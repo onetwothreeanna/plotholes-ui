@@ -2,6 +2,7 @@ import React, { Fragment, useContext, useEffect } from 'react';
 import MovieItem from './MovieItem';
 import Spinner from '../layout/Spinner';
 import MovieContext from '../../context/movie/movieContext';
+import PaginatedContent from './PaginatedContent';
 
 const Movies = () => {
   const movieContext = useContext(MovieContext);
@@ -24,10 +25,7 @@ const Movies = () => {
             <MovieItem key={movie.id} movie={movie} />
           ))
         ) : (
-          // movies.map((movie) => (
-          //   <MovieItem key={movie.id} movie={movie} />
-          // ))
-          <MovieItem key={movies[0].id} movie={movies[0]}/>
+          <PaginatedContent />
         )
       ) : (
         <Spinner />
