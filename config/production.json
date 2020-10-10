@@ -1,4 +1,0 @@
-{
-  "mongoURI": "mongodb+srv://wasabiHelp:qwdgiDgosCxwZ8kv@befit.lawg7.mongodb.net/workouches?retryWrites=true&w=majority",
-  "jwtSecret": "supasecret"
-}

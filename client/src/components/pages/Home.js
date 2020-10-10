@@ -1,25 +1,17 @@
 import React, { useContext, useEffect } from 'react';
-import Workouts from '../workouts/Workouts';
-import WorkoutForm from '../workouts/WorkoutForm';
-import WorkoutFilter from '../workouts/WorkoutFilter';
-import AuthContext from '../../context/auth/authContext';
+import Movies from '../movies/Movies';
+import MovieForm from '../movies/MovieForm';
+import MoviesFilter from '../movies/MoviesFilter';
 
 const Home = () => {
-  const authContext = useContext(AuthContext);
-
-  useEffect(() => {
-    authContext.loadUser();
-    //eslint-disable-next-line
-  }, []);
-
   return (
     <div className='grid-2'>
       <div>
-        <WorkoutForm />
+        <MovieForm />
       </div>
       <div>
-        <WorkoutFilter />
-        <Workouts />
+        <MoviesFilter />
+        <Movies />
       </div>
     </div>
   );
