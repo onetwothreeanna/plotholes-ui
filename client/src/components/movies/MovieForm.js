@@ -66,64 +66,89 @@ const MovieForm = () => {
       <h2 className='text-primary'>
         {current ? 'Edit Movie' : 'Add Movie'}
       </h2>
-      <input
-        type='text'
-        placeholder='Title*'
-        name='Title'
-        value={Title}
-        required
-        onChange={onChange}
-      />
-      <input
-        type='text'
-        placeholder='Release Year'
-        name='ReleaseYear'
-        value={ReleaseYear}
-        onChange={onChange}
-      />
-      <input
-        type='text'
-        placeholder='Cast'
-        name='Cast'
-        value={Cast}
-        onChange={onChange}
-      />
-      <input
-        type='text'
-        placeholder='Director'
-        name='Director'
-        value={Director}
-        onChange={onChange}
-      />
-      <input
-        type='text'
-        placeholder='Genre'
-        name='Genre'
-        value={Genre}
-        onChange={onChange}
-      />
-      <input
-        type='text'
-        placeholder='Origin/Ethnicity'
-        name='OriginEthnicity'
-        value={OriginEthnicity}
-        onChange={onChange}
-      />
-      <textarea
-        type='text'
-        placeholder='Plot*'
-        name='Plot'
-        required
-        value={Plot}
-        onChange={onChange}
-      />
-      <input
-        type='text'
-        placeholder='Wiki Page Link'
-        name='WikiPage'
-        value={WikiPage}
-        onChange={onChange}
-      />
+      <label>
+        Title *
+        <input
+          type='text'
+          name='Title'
+          // placeholder='Title (required)'
+          value={Title}
+          required
+          onChange={onChange}
+        />
+      </label>
+      <label>
+        Release Year
+          <input
+            type='text'
+            // placeholder='Release Year'
+            name='ReleaseYear'
+            value={ReleaseYear}
+            onChange={onChange}
+          />
+      </label>
+      <label>
+        Cast
+        <input
+          type='text'
+          // placeholder='Cast'
+          name='Cast'
+          value={Cast}
+          onChange={onChange}
+        />
+      </label>
+      <label>
+        Director
+        <input
+          type='text'
+          // placeholder='Director'
+          name='Director'
+          value={Director}
+          onChange={onChange}
+        />
+      </label>
+      <label>
+        Genre
+        <input
+          type='text'
+          // placeholder='Genre'
+          name='Genre'
+          value={Genre}
+          onChange={onChange}
+        />
+      </label>
+      <label>
+        Origin/Ethnicity
+        <input
+          type='text'
+          // placeholder='Origin/Ethnicity'
+          name='OriginEthnicity'
+          value={OriginEthnicity}
+          onChange={onChange}
+        />
+      </label>
+      <label>
+        Plot *
+        <textarea
+          type='text'
+          // placeholder='Plot (required)'
+          name='Plot'
+          required
+          value={Plot}
+          onChange={onChange}
+        />
+      </label>
+      <br/>
+      <label>
+        Wiki Page
+        <input
+          type='text'
+          // placeholder='Wiki Page Link'
+          name='WikiPage'
+          value={WikiPage}
+          onChange={onChange}
+        />
+      </label>
       <div>
         <input
           type='submit'
