@@ -25,15 +25,24 @@ const MovieFilter = () => {
   return (
     <form onSubmit={onSubmit}>
       <input
+        style={{marginBottom: '0px'}}
         ref={text}
         disabled={loading}
         type='text'
         placeholder='Search for movies by Title'
       />
-      <input
+      <input 
+        style={{marginTop: '1px'}}
         type='submit'
         value={'Search'}
-        className='btn btn-primary'
+        className='btn btn-primary btn-sm'
+      />
+      <input
+        style={{marginTop: '1px'}}
+        type='button'
+        value={'Clear Search'}
+        className='btn btn-primary btn-sm'
+        onClick={clearFilter}
       />
     </form>
   );

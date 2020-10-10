@@ -236,7 +236,7 @@ ul.pagination li a.active {
   display: inline-block;
   background: var(--light-color);
   color: #333;
-  padding: 0.4rem 1.3rem;
+  padding: 0.4rem 0.5rem;
   font-size: 1rem;
   border: none;
   cursor: pointer;
@@ -344,7 +344,7 @@ ul.pagination li a.active {
 
 /* Forms */
 input {
-  margin: 1.2rem 0;
+  margin: 1rem 0;
 }
 
 .form-text {
