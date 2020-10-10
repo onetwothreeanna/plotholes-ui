@@ -25,6 +25,15 @@ const PaginatedContent = () => {
 
    return (
       <div>
+         <div className="pagination">
+            <Pagination
+               activePage={ activePage }
+               itemsCountPerPage={ 10 }
+               totalItemsCount={ movies.length }
+               pageRangeDisplayed={ 10 }
+               onChange={ handlePageChange }
+            />
+         </div>
          <div className="result">
             { renderMovies }
          </div>
