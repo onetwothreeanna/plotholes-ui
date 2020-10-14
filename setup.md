@@ -1,9 +1,9 @@
 # Environment Info
-**IDE:**  Visual Studio Code 1.50.0\
+**IDE:**  Visual Studio Code 1.50.0 (can also be done from Command Line)\
 **OS:** Mac 10.15.6 Catalina 
 
 # Start the UI
-1) In commandline - Clone UI repo:
+1) Clone UI repo:
 https://github.com/onetwothreeanna/plotholes-ui
 
 2) CD into plotholes-ui project.  Navigate into client directory (apologies for the sloppy structure):
